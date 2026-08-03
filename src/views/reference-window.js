@@ -194,7 +194,7 @@ function renderExitButton() {
       title="Salir"
       style="
         --exit-left: 0.8%;
-        --exit-top: calc(72.8% - 110px);
+        --exit-top: 62.9%;
         --exit-width: 10.9%;
         --exit-height: 4.7%;
       "
