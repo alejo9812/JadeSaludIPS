@@ -1,4 +1,4 @@
-import { defaultRoute, navigation, site } from "./src/config.js";
+﻿import { defaultRoute, navigation, site } from "./src/config.js";
 import { inicioView } from "./src/views/1_inicio.js";
 import { cmrView } from "./src/views/2_cmr.js";
 import { seguimientoView } from "./src/views/3_1_seguimiento.js";
@@ -79,7 +79,7 @@ const formMessages = {
   appointment:
     "Solicitud de cita preparada. Conecta este formulario con tu agenda o backend para activarlo.",
   login:
-    "Ventana de acceso lista. Aquí puedes conectar tu autenticación real cuando la tengas.",
+    "Ventana de acceso lista. AquÃ­ puedes conectar tu autenticaciÃ³n real cuando la tengas.",
 };
 
 const app = document.querySelector("#app");
@@ -120,7 +120,7 @@ app.innerHTML = `
       <nav id="main-nav" class="main-nav" data-nav aria-label="Ventanas principales"></nav>
 
       <a class="button button--secondary topbar__panel" href="#2_cmr">
-        Panel clínico
+        Panel clÃ­nico
       </a>
 
       <a class="button button--primary topbar__cta" href="#4_citas">
@@ -149,16 +149,16 @@ app.innerHTML = `
           data-login-close
           aria-label="Cerrar ventana"
         >
-          ×
+          Ã—
         </button>
 
         <div class="login-modal__brand" aria-hidden="true">
           <img class="login-modal__brand-image" src="./assets/logo.png" alt="" />
         </div>
 
-        <h2 id="login-modal-title" class="login-modal__title">Inicio de sesión</h2>
+        <h2 id="login-modal-title" class="login-modal__title">Inicio de sesiÃ³n</h2>
         <p id="login-modal-description" class="login-modal__copy">
-          Ingresa tu correo y contraseña.
+          Ingresa tu correo y contraseÃ±a.
         </p>
 
         <label class="login-modal__field">
@@ -173,12 +173,12 @@ app.innerHTML = `
         </label>
 
         <label class="login-modal__field">
-          <span>Contraseña</span>
+          <span>ContraseÃ±a</span>
           <input
             type="password"
             name="password"
             autocomplete="current-password"
-            value="••••"
+            value="â€¢â€¢â€¢â€¢"
           />
         </label>
 
@@ -411,15 +411,14 @@ function appendWhatsAppMessage(message) {
   }).format(new Date());
 
   const status = document.createElement("span");
-status.className = "whatsapp-chat__ticks";
-status.setAttribute("aria-hidden", "true");
-status.textContent = "✓✓";
+  status.className = "whatsapp-chat__ticks";
+  status.setAttribute("aria-hidden", "true");
+  status.textContent = "✓✓";
 
   meta.append(time, status);
   bubble.append(text, meta);
   messageNode.append(bubble);
   thread.append(messageNode);
-  messageNode.querySelector(".whatsapp-chat__ticks")?.textContent = "✓✓";
   scrollWhatsAppThreadToBottom("smooth");
 }
 
@@ -552,7 +551,7 @@ function splitSpeakerHeader(value) {
     .trim()
     .replace(/^\*\*/, "")
     .replace(/\*\*$/, "");
-  const separatorIndex = cleaned.lastIndexOf("·");
+  const separatorIndex = cleaned.lastIndexOf("Â·");
 
   if (separatorIndex === -1) {
     return {
@@ -694,7 +693,7 @@ function parseWhatsAppConversationMarkdown(markdown) {
       continue;
     }
 
-    const speakerMatch = trimmedLine.match(/^\*\*(.+?)\s*·\s*(.+?)\*\*$/);
+    const speakerMatch = trimmedLine.match(/^\*\*(.+?)\s*Â·\s*(.+?)\*\*$/);
 
     if (speakerMatch) {
       flushMessage();
@@ -823,7 +822,7 @@ function renderWhatsAppConversationItem(item) {
 
   if (item.kind === "replies") {
     return `
-      <div class="whatsapp-chat__reply-group" role="group" aria-label="${escapeHtml(item.title || "Respuestas rápidas")}">
+      <div class="whatsapp-chat__reply-group" role="group" aria-label="${escapeHtml(item.title || "Respuestas rÃ¡pidas")}">
         ${item.options
           .map(
             (option) => `
@@ -847,7 +846,7 @@ function renderWhatsAppConversationItem(item) {
         <div class="whatsapp-chat__text">${renderMarkdownText(messageBody)}</div>
         <footer class="whatsapp-chat__meta">
           <span class="whatsapp-chat__time">${escapeHtml(item.time || "")}</span>
-          ${isOutgoing ? `<span class="whatsapp-chat__ticks" aria-hidden="true">${item.read ? "✓✓" : "✓"}</span>` : ""}
+          ${isOutgoing ? `<span class="whatsapp-chat__ticks" aria-hidden="true">${item.read ? "âœ“âœ“" : "âœ“"}</span>` : ""}
         </footer>
       </div>
     </article>
@@ -903,7 +902,7 @@ function ensureWhatsAppConversationLoaded({ scrollToTop = false, force = false }
   const loadPromise = fetch(source)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`No se pudo cargar la conversación ${source}`);
+        throw new Error(`No se pudo cargar la conversaciÃ³n ${source}`);
       }
 
       return response.text();
@@ -980,7 +979,7 @@ function openCmrModal(trigger) {
   }
 
   if (copy instanceof HTMLElement) {
-    copy.textContent = "Esta ficha está lista para conectar un detalle real del consultante.";
+    copy.textContent = "Esta ficha estÃ¡ lista para conectar un detalle real del consultante.";
   }
 
   if (meta instanceof HTMLElement) {
