@@ -14,9 +14,9 @@ export const inicioView = createReferenceWindow({
         aria-haspopup="dialog"
         aria-controls="login-modal"
         aria-expanded="false"
-        aria-label="Iniciar sesion"
+        aria-label="Iniciar sesión"
       >
-        Iniciar sesion
+        Iniciar sesión
       </button>
   `,
 });

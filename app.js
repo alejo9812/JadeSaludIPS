@@ -79,7 +79,7 @@ const formMessages = {
   appointment:
     "Solicitud de cita preparada. Conecta este formulario con tu agenda o backend para activarlo.",
   login:
-    "Ventana de acceso lista. AquÃ­ puedes conectar tu autenticaciÃ³n real cuando la tengas.",
+    "Ventana de acceso lista. Aquí puedes conectar tu autenticación real cuando la tengas.",
 };
 
 const app = document.querySelector("#app");
@@ -120,7 +120,7 @@ app.innerHTML = `
       <nav id="main-nav" class="main-nav" data-nav aria-label="Ventanas principales"></nav>
 
       <a class="button button--secondary topbar__panel" href="#2_cmr">
-        Panel clÃ­nico
+        Panel clínico
       </a>
 
       <a class="button button--primary topbar__cta" href="#4_citas">
@@ -149,16 +149,16 @@ app.innerHTML = `
           data-login-close
           aria-label="Cerrar ventana"
         >
-          Ã—
+          &times;
         </button>
 
         <div class="login-modal__brand" aria-hidden="true">
           <img class="login-modal__brand-image" src="./assets/logo.png" alt="" />
         </div>
 
-        <h2 id="login-modal-title" class="login-modal__title">Inicio de sesiÃ³n</h2>
+        <h2 id="login-modal-title" class="login-modal__title">Inicio de sesión</h2>
         <p id="login-modal-description" class="login-modal__copy">
-          Ingresa tu correo y contraseÃ±a.
+          Ingresa tu correo y contraseña.
         </p>
 
         <label class="login-modal__field">
@@ -173,12 +173,12 @@ app.innerHTML = `
         </label>
 
         <label class="login-modal__field">
-          <span>ContraseÃ±a</span>
+          <span>Contraseña</span>
           <input
             type="password"
             name="password"
             autocomplete="current-password"
-            value="â€¢â€¢â€¢â€¢"
+            value="••••"
           />
         </label>
 
@@ -822,7 +822,7 @@ function renderWhatsAppConversationItem(item) {
 
   if (item.kind === "replies") {
     return `
-      <div class="whatsapp-chat__reply-group" role="group" aria-label="${escapeHtml(item.title || "Respuestas rÃ¡pidas")}">
+      <div class="whatsapp-chat__reply-group" role="group" aria-label="${escapeHtml(item.title || "Respuestas rápidas")}">
         ${item.options
           .map(
             (option) => `
@@ -902,7 +902,7 @@ function ensureWhatsAppConversationLoaded({ scrollToTop = false, force = false }
   const loadPromise = fetch(source)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`No se pudo cargar la conversaciÃ³n ${source}`);
+        throw new Error(`No se pudo cargar la conversación ${source}`);
       }
 
       return response.text();
@@ -979,7 +979,7 @@ function openCmrModal(trigger) {
   }
 
   if (copy instanceof HTMLElement) {
-    copy.textContent = "Esta ficha estÃ¡ lista para conectar un detalle real del consultante.";
+    copy.textContent = "Esta ficha está lista para conectar un detalle real del consultante.";
   }
 
   if (meta instanceof HTMLElement) {
