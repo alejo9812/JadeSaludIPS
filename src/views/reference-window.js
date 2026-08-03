@@ -184,6 +184,26 @@ function renderWhatsAppHotspot() {
   `;
 }
 
+function renderExitButton() {
+  return `
+    <button
+      class="fullscreen-hero__exit-button"
+      type="button"
+      data-cmr-target="1_inicio"
+      aria-label="Salir"
+      title="Salir"
+      style="
+        --exit-left: 0.8%;
+        --exit-top: calc(72.8% - 110px);
+        --exit-width: 10.9%;
+        --exit-height: 4.7%;
+      "
+    >
+      <span class="fullscreen-hero__exit-button-text">Salir</span>
+    </button>
+  `;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -543,6 +563,7 @@ export function createReferenceWindow({
   const followUpNavigation = renderFollowUpNavigation(slug);
   const fiveFollowUpNavigation = renderFiveFollowUpNavigation(slug);
   const resultsNavigation = renderResultsNavigation(slug);
+  const exitButton = slug !== "1_inicio" ? renderExitButton() : "";
   const whatsappModal = whatsappHotspotRoutes.has(slug) ? renderWhatsAppModalChat() : "";
   const useStage = slug !== "1_inicio";
 
@@ -571,6 +592,7 @@ export function createReferenceWindow({
           ${followUpNavigation}
           ${fiveFollowUpNavigation}
           ${resultsNavigation}
+          ${exitButton}
           ${actionMarkup}
           ${whatsappModal}
         </div>
@@ -595,6 +617,7 @@ export function createReferenceWindow({
         ${followUpNavigation}
         ${fiveFollowUpNavigation}
         ${resultsNavigation}
+        ${exitButton}
         ${actionMarkup}
         ${whatsappModal}
       `;
