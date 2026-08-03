@@ -81,6 +81,15 @@ const whatsappHotspotRoutes = new Set([
   "3_6_seguimiento",
 ]);
 
+const whatsappConversationSources = {
+  "3_seguimiento": "./assets/conversations/01_ana_maria_velez.md",
+  "3_2_seguimiento": "./assets/conversations/02_juan_felipe_ramirez.md",
+  "3_3_seguimiento": "./assets/conversations/03_laura_gomez.md",
+  "3_4_seguimiento": "./assets/conversations/04_camilo_vargas.md",
+  "3_5_seguimiento": "./assets/conversations/05_sofia_martinez.md",
+  "3_6_seguimiento": "./assets/conversations/06_valentina_rojas.md",
+};
+
 const followUpNavigationRoutes = {
   "3_seguimiento": { prev: "2_cmr", next: "3_2_seguimiento" },
   "3_2_seguimiento": { prev: "3_seguimiento", next: "3_3_seguimiento" },
@@ -379,11 +388,11 @@ function renderChevron(direction) {
   `;
 }
 
-function renderWhatsAppModal() {
-  return renderWhatsAppModalChat();
+function renderWhatsAppModal(source) {
+  return renderWhatsAppModalChat(source);
 }
 
-function renderWhatsAppModalChat() {
+function renderWhatsAppModalChat(source = "./assets/conversations/06_valentina_rojas.md") {
   return `
     <dialog
       id="whatsapp-modal"
@@ -430,7 +439,7 @@ function renderWhatsAppModalChat() {
         <section
           class="whatsapp-chat__thread"
           data-whatsapp-thread
-          data-whatsapp-source="./assets/conversations/06_valentina_rojas.md"
+          data-whatsapp-source="${escapeHtml(source)}"
           aria-live="polite"
           aria-label="Conversación de seguimiento"
         >
@@ -564,7 +573,9 @@ export function createReferenceWindow({
   const fiveFollowUpNavigation = renderFiveFollowUpNavigation(slug);
   const resultsNavigation = renderResultsNavigation(slug);
   const exitButton = slug !== "1_inicio" ? renderExitButton() : "";
-  const whatsappModal = whatsappHotspotRoutes.has(slug) ? renderWhatsAppModalChat() : "";
+  const whatsappModal = whatsappHotspotRoutes.has(slug)
+    ? renderWhatsAppModalChat(whatsappConversationSources[slug])
+    : "";
   const useStage = slug !== "1_inicio";
 
   const mediaMarkup = useStage
