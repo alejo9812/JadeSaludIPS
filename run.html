@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Selector de vistas para Jadesalud IPS: computador y celular horizontal."
+    />
+    <meta name="theme-color" content="#0f8a6b" />
+    <title>Jadesalud IPS | Run</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./run.css" />
+  </head>
+  <body>
+    <main class="run-launcher">
+      <header class="run-launcher__header">
+        <div class="run-launcher__brand">
+          <strong>Jadesalud IPS</strong>
+          <span>Selector de vista</span>
+        </div>
+
+        <div class="run-launcher__actions" role="group" aria-label="Cambiar vista">
+          <button class="run-launcher__button" type="button" data-mode="desktop" aria-pressed="true">
+            Pantalla de computador
+          </button>
+          <button class="run-launcher__button" type="button" data-mode="mobile-landscape" aria-pressed="false">
+            Celular horizontal
+          </button>
+        </div>
+      </header>
+
+      <section class="run-launcher__stage">
+        <div class="run-launcher__frame-shell" data-frame-shell>
+          <iframe
+            class="run-launcher__frame"
+            data-preview-frame
+            title="Vista previa de Jadesalud IPS"
+            src="./index.html#1_inicio"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./run.js"></script>
+  </body>
+</html>

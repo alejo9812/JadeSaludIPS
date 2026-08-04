@@ -1,0 +1,10 @@
+{
+  "name": "jadesaludips-front",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Front modular de Jadesalud IPS preparado para 5 ventanas navegables.",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
